@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Classroom Q&A Forum</title>
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 800px; margin: 40px auto; padding: 20px; }
+        .question-card { border: 1px solid #ccc; padding: 15px; margin-bottom: 20px; border-radius: 5px; }
+        .author { color: #555; font-size: 0.9em; }
+    </style>
+</head>
+<body>
+
+    <h1>Classroom Q&A Forum</h1>
+    <hr>
+
+    <h2>Recent Questions</h2>
+
+    <!-- Loop through the 'questions' list sent by app.py -->
+    {% for question in questions %}
+        <div class="question-card">
+            <h3>{{ question.title }}</h3>
+            <p>{{ question.body }}</p>
+            <p class="author">Asked by: <strong>{{ question.username }}</strong></p>
+            <button>View Answers</button>
+        </div>
+    {% else %}
+        <!-- What to show if the database is empty -->
+        <p>No questions have been asked yet. Be the first!</p>
+    {% endfor %}
+
+</body>
+</html>
